@@ -20,7 +20,18 @@ $(document).ready(function() {
       bassDrum.stop();
       bassDrum.play();
     }
+
+    if (event.keyCode === 82){
+      highHat.loopsound();
+    }
+
+    if (event.keyCode === 69){
+      bassDrum.loopsound();
+    }
+
   });
+
+
 
 });
 
@@ -29,10 +40,15 @@ function Sound(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
     this.play = function(){
-        this.sound.play();
+      this.sound.loop = false;
+      this.sound.play();
     }
     this.stop = function(){
         this.sound.pause();
         this.sound.currentTime = 0;
+    }
+    this.loopsound = function() {
+      this.sound.loop = true;
+      this.sound.play();
     }
 };
