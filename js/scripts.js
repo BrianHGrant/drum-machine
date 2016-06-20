@@ -11,6 +11,17 @@ $(document).ready(function() {
     bassDrum.play();
   });
 
+  $("body").keydown(function(event){
+    if (event.keyCode === 81){
+      highHat.stop();
+      highHat.play();
+    }
+    if (event.keyCode === 87){
+      bassDrum.stop();
+      bassDrum.play();
+    }
+  });
+
 });
 
 
@@ -24,4 +35,4 @@ function Sound(src) {
         this.sound.pause();
         this.sound.currentTime = 0;
     }
-}
+};
