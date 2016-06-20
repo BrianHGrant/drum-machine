@@ -31,7 +31,31 @@ $(document).ready(function() {
 
   });
 
-
+  $("#loop-btn").click(function(event){
+    var loopArray = []
+    $('.checbox:checked').each(function () {
+      loopArray.push($(this).val());
+    });
+    var playLoop = true;
+    console.log(playLoop);
+      for(i=0;i<loopArray.length;i++) {
+        if(playLoop === true) {
+          if (loopArray[i]==="drumBass") {
+            bassDrum.loopsound();
+          }
+          if (loopArray[i]==="highHat") {
+            highHat.loopsound();
+          }
+        }
+      }
+  });
+  $("#stop-loop-btn").click(function(event){
+    playLoop = false;
+    if(playLoop === false){
+      bassDrum.stop();
+      highHat.stop();
+    }
+  });
 
 });
 
