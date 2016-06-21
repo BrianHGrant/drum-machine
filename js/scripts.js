@@ -33,14 +33,58 @@ $(document).ready(function() {
 
   $("#loop-btn").click(function(event){
 
-    playInterval = setInterval(playLoop, 4000);
+
 
     // setTimeout(bassDrum.play(), 3000);
 
-    // var loopArray = []
-    // $('.checbox:checked').each(function () {
-    //   loopArray.push($(this).val());
-    // });
+    currentLoop = new SoundLoop();
+    var firstPosition = [];
+    $('.checbox:checked').each(function () {
+      if ($(this).val()==="drumBass") {
+          firstPosition.push(bassDrum);
+        }
+      else if ($(this).val()==="highHat") {
+        firstPosition.push(highHat);
+      }
+      currentLoop.addSound(firstPosition);
+    });
+
+    var secondPosition = [];
+    $('.checbox2:checked').each(function () {
+      if ($(this).val()==="drumBass") {
+          secondPosition.push(bassDrum);
+        }
+      else if ($(this).val()==="highHat") {
+        secondPosition.push(highHat);
+      }
+      currentLoop.addSound(secondPosition);
+    });
+
+    var thirdPosition = [];
+    $('.checbox3:checked').each(function () {
+      if ($(this).val()==="drumBass") {
+          thirdPosition.push(bassDrum);
+        }
+      else if ($(this).val()==="highHat") {
+        thirdPosition.push(highHat);
+      }
+      currentLoop.addSound(thirdPosition);
+    });
+
+    var fourthPosition = [];
+    $('.checbox4:checked').each(function () {
+      if ($(this).val()==="drumBass") {
+          fourthPosition.push(bassDrum);
+        }
+      else if ($(this).val()==="highHat") {
+        fourthPosition.push(highHat);
+      }
+      currentLoop.addSound(fourthPosition);
+    });
+
+    playInterval = setInterval(playLoop, 4000);
+
+    //     if(playLoop === true) {
     // var playLoop = true;
     // console.log(playLoop);
     //   for(i=0;i<loopArray.length;i++) {
@@ -66,10 +110,44 @@ $(document).ready(function() {
 });
 
 function playLoop() {
-  setTimeout(playSound, 0);
-  setTimeout(playSound2, 1000);
-  setTimeout(playSound, 2000);
-  setTimeout(playSound2, 3000);
+  for (var i=0;i<currentLoop.sounds[0].length; i++) {
+    if(currentLoop.sounds[0][i] === highHat){
+      setTimeout(playSound2, 0);
+    }
+    if (currentLoop.sounds[0][i] === bassDrum) {
+      setTimeout(playSound, 0);
+    }
+  }
+
+  for (var i=0;i<currentLoop.sounds[1].length; i++) {
+    if(currentLoop.sounds[1][i] === highHat){
+      setTimeout(playSound2, 1000);
+    }
+    if (currentLoop.sounds[1][i] === bassDrum) {
+      setTimeout(playSound, 1000);
+    }
+  }
+
+  for (var i=0;i<currentLoop.sounds[2].length; i++) {
+    if(currentLoop.sounds[2][i] === highHat){
+      setTimeout(playSound2, 2000);
+    }
+    if (currentLoop.sounds[2][i] === bassDrum) {
+      setTimeout(playSound, 2000);
+    }
+  }
+  for (var i=0;i<currentLoop.sounds[3].length; i++) {
+    if(currentLoop.sounds[3][i] === highHat){
+      setTimeout(playSound2, 3000);
+    }
+    if (currentLoop.sounds[3][i] === bassDrum) {
+      setTimeout(playSound, 3000);
+    }
+  }
+  // setTimeout(playSound, 0);
+  // setTimeout(playSound2, 1000);
+  // setTimeout(playSound, 2000);
+  // setTimeout(playSound2, 3000);
 }
 
 function playSound() {
@@ -100,4 +178,12 @@ function Sound(src) {
 Sound.prototype.play = function() {
   this.sound.loop = false;
   this.sound.play();
+}
+
+function SoundLoop() {
+  this.sounds = [];
+}
+
+SoundLoop.prototype.addSound = function(sound) {
+  this.sounds.push(sound);
 }
