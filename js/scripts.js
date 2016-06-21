@@ -21,21 +21,9 @@ $(document).ready(function() {
       bassDrum.play();
     }
 
-    if (event.keyCode === 82){
-      highHat.loopsound();
-    }
-
-    if (event.keyCode === 69){
-      bassDrum.loopsound();
-    }
-
   });
 
   $("#loop-btn").click(function(event){
-
-
-
-    // setTimeout(bassDrum.play(), 3000);
 
     currentLoop = new SoundLoop();
     var firstPosition = [];
@@ -46,8 +34,8 @@ $(document).ready(function() {
       else if ($(this).val()==="highHat") {
         firstPosition.push(highHat);
       }
-      currentLoop.addSound(firstPosition);
     });
+    currentLoop.addSound(firstPosition);
 
     var secondPosition = [];
     $('.checbox2:checked').each(function () {
@@ -57,8 +45,8 @@ $(document).ready(function() {
       else if ($(this).val()==="highHat") {
         secondPosition.push(highHat);
       }
-      currentLoop.addSound(secondPosition);
     });
+    currentLoop.addSound(secondPosition);
 
     var thirdPosition = [];
     $('.checbox3:checked').each(function () {
@@ -68,8 +56,8 @@ $(document).ready(function() {
       else if ($(this).val()==="highHat") {
         thirdPosition.push(highHat);
       }
-      currentLoop.addSound(thirdPosition);
     });
+    currentLoop.addSound(thirdPosition);
 
     var fourthPosition = [];
     $('.checbox4:checked').each(function () {
@@ -79,31 +67,13 @@ $(document).ready(function() {
       else if ($(this).val()==="highHat") {
         fourthPosition.push(highHat);
       }
-      currentLoop.addSound(fourthPosition);
     });
+    currentLoop.addSound(fourthPosition);
 
     playInterval = setInterval(playLoop, 4000);
 
-    //     if(playLoop === true) {
-    // var playLoop = true;
-    // console.log(playLoop);
-    //   for(i=0;i<loopArray.length;i++) {
-    //     if(playLoop === true) {
-    //       if (loopArray[i]==="drumBass") {
-    //         bassDrum.loopsound();
-    //       }
-    //       if (loopArray[i]==="highHat") {
-    //         highHat.loopsound();
-    //       }
-    //     }
-    //   }
   });
   $("#stop-loop-btn").click(function(event){
-    // playLoop = false;
-    // if(playLoop === false){
-    //   bassDrum.stop();
-    //   highHat.stop();
-    // }
     clearInterval(playInterval);
   });
 
@@ -144,10 +114,6 @@ function playLoop() {
       setTimeout(playSound, 3000);
     }
   }
-  // setTimeout(playSound, 0);
-  // setTimeout(playSound2, 1000);
-  // setTimeout(playSound, 2000);
-  // setTimeout(playSound2, 3000);
 }
 
 function playSound() {
@@ -168,10 +134,6 @@ function Sound(src) {
     this.stop = function(){
         this.sound.pause();
         this.sound.currentTime = 0;
-    }
-    this.loopsound = function() {
-      this.sound.loop = true;
-      this.sound.play();
     }
 };
 
