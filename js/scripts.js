@@ -82,7 +82,7 @@ $(document).ready(function() {
       currentLoop.addSound(fourthPosition);
     });
 
-    playInterval = setInterval(playLoop, 4000);
+    playInterval = setInterval(playLoop, 1000);
 
     //     if(playLoop === true) {
     // var playLoop = true;
@@ -121,27 +121,27 @@ function playLoop() {
 
   for (var i=0;i<currentLoop.sounds[1].length; i++) {
     if(currentLoop.sounds[1][i] === highHat){
-      setTimeout(playSound2, 1000);
+      setTimeout(playSound2, 250);
     }
     if (currentLoop.sounds[1][i] === bassDrum) {
-      setTimeout(playSound, 1000);
+      setTimeout(playSound, 250);
     }
   }
 
   for (var i=0;i<currentLoop.sounds[2].length; i++) {
     if(currentLoop.sounds[2][i] === highHat){
-      setTimeout(playSound2, 2000);
+      setTimeout(playSound2, 500);
     }
     if (currentLoop.sounds[2][i] === bassDrum) {
-      setTimeout(playSound, 2000);
+      setTimeout(playSound, 500);
     }
   }
   for (var i=0;i<currentLoop.sounds[3].length; i++) {
     if(currentLoop.sounds[3][i] === highHat){
-      setTimeout(playSound2, 3000);
+      setTimeout(playSound2, 750);
     }
     if (currentLoop.sounds[3][i] === bassDrum) {
-      setTimeout(playSound, 3000);
+      setTimeout(playSound, 750);
     }
   }
   // setTimeout(playSound, 0);
