@@ -1,3 +1,7 @@
+#stop-loop-btn {
+	display: none;
+}
+
 .sequencer {
 	display: flex;
 	flex-direction: column;

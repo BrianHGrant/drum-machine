@@ -52,7 +52,8 @@ $(document).ready(function() {
   });
 
   $("#loop-btn").click(function(event){
-
+    $("#loop-btn").hide();
+    $("#stop-loop-btn").show();
     currentLoop = new SoundLoop();
     var firstPosition = [];
     $('.checbox:checked').each(function () {
@@ -139,6 +140,8 @@ $(document).ready(function() {
   });
   $("#stop-loop-btn").click(function(event){
     clearInterval(playInterval);
+    $("#loop-btn").show();
+    $("#stop-loop-btn").hide();
   });
 
 });
