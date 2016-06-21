@@ -56,84 +56,208 @@ $(document).ready(function() {
     $("#stop-loop-btn").show();
     currentLoop = new SoundLoop();
     var firstPosition = [];
-    $('.checbox:checked').each(function () {
-      if ($(this).val()==="drumBass") {
-          firstPosition.push(bassDrum);
-        }
-      else if ($(this).val()==="highHat") {
-        firstPosition.push(highHat);
-      }
-      else if ($(this).val()==="snareDrum") {
-        firstPosition.push(snareDrum);
-      }
-      else if ($(this).val()==="bongoDrum"){
-        firstPosition.push(bongoDrum);
-      }
-      else if ($(this).val()==="cymbalCrash"){
-        firstPosition.push(cymbalCrash);
-      }
-    });
-    currentLoop.addSound(firstPosition);
+    for(i=0; i<8;i++) {
 
-    var secondPosition = [];
-    $('.checbox2:checked').each(function () {
-      if ($(this).val()==="drumBass") {
-          secondPosition.push(bassDrum);
-        }
-      else if ($(this).val()==="highHat") {
-        secondPosition.push(highHat);
-      }
-      else if ($(this).val()==="snareDrum") {
-        secondPosition.push(snareDrum);
-      }
-      else if ($(this).val()==="bongoDrum"){
-        secondPosition.push(bongoDrum);
-      }
-      else if ($(this).val()==="cymbalCrash"){
-        secondPosition.push(cymbalCrash);
-      }
-    });
-    currentLoop.addSound(secondPosition);
 
-    var thirdPosition = [];
-    $('.checbox3:checked').each(function () {
-      if ($(this).val()==="drumBass") {
-          thirdPosition.push(bassDrum);
+      $('.checbox' + i + ':checked').each(function () {
+        if ($(this).val()==="drumBass") {
+            currentLoop.sounds[i].push(bassDrum);
+          }
+        else if ($(this).val()==="highHat") {
+          currentLoop.sounds[i].push(highHat);
         }
-      else if ($(this).val()==="highHat") {
-        thirdPosition.push(highHat);
-      }
-      else if ($(this).val()==="snareDrum") {
-        thirdPosition.push(snareDrum);
-      }
-      else if ($(this).val()==="bongoDrum"){
-        thirdPosition.push(bongoDrum);
-      }
-      else if ($(this).val()==="cymbalCrash"){
-        thirdPosition.push(cymbalCrash);
-      }
-    });
-    currentLoop.addSound(thirdPosition);
+        else if ($(this).val()==="snareDrum") {
+          currentLoop.sounds[i].push(snareDrum);
+        }
+        else if ($(this).val()==="bongoDrum"){
+          currentLoop.sounds[i].push(bongoDrum);
+        }
+        else if ($(this).val()==="cymbalCrash"){
+          currentLoop.sounds[i].push(cymbalCrash);
+        }
+      });
 
-    var fourthPosition = [];
-    $('.checbox4:checked').each(function () {
-      if ($(this).val()==="drumBass") {
-          fourthPosition.push(bassDrum);
-        }
-      else if ($(this).val()==="highHat") {
-        fourthPosition.push(highHat);
-      }
-      else if ($(this).val()==="snareDrum") {
-        fourthPosition.push(snareDrum);
-      }
-      else if ($(this).val()==="bongoDrum"){
-        fourthPosition.push(bongoDrum);
-      }
-      else if ($(this).val()==="cymbalCrash"){
-        fourthPosition.push(cymbalCrash);
-      }
-    });
-    currentLoop.addSound(fourthPosition);
+
+    }
+    // $('.checbox:checked').each(function () {
+    //   if ($(this).val()==="drumBass") {
+    //       firstPosition.push(bassDrum);
+    //     }
+    //   else if ($(this).val()==="highHat") {
+    //     firstPosition.push(highHat);
+    //   }
+    //   else if ($(this).val()==="snareDrum") {
+    //     firstPosition.push(snareDrum);
+    //   }
+    //   else if ($(this).val()==="bongoDrum"){
+    //     firstPosition.push(bongoDrum);
+    //   }
+    //   else if ($(this).val()==="cymbalCrash"){
+    //     firstPosition.push(cymbalCrash);
+    //   }
+    // });
+    // currentLoop.addSound(firstPosition);
+
+    // var secondPosition = [];
+    // $('.checbox2:checked').each(function () {
+    //   if ($(this).val()==="drumBass") {
+    //       secondPosition.push(bassDrum);
+    //     }
+    //   else if ($(this).val()==="highHat") {
+    //     secondPosition.push(highHat);
+    //   }
+    //   else if ($(this).val()==="snareDrum") {
+    //     secondPosition.push(snareDrum);
+    //   }
+    //   else if ($(this).val()==="bongoDrum"){
+    //     secondPosition.push(bongoDrum);
+    //   }
+    //   else if ($(this).val()==="cymbalCrash"){
+    //     secondPosition.push(cymbalCrash);
+    //   }
+    // });
+    // currentLoop.addSound(secondPosition);
+    //
+    // var thirdPosition = [];
+    // $('.checbox3:checked').each(function () {
+    //   if ($(this).val()==="drumBass") {
+    //       thirdPosition.push(bassDrum);
+    //     }
+    //   else if ($(this).val()==="highHat") {
+    //     thirdPosition.push(highHat);
+    //   }
+    //   else if ($(this).val()==="snareDrum") {
+    //     thirdPosition.push(snareDrum);
+    //   }
+    //   else if ($(this).val()==="bongoDrum"){
+    //     thirdPosition.push(bongoDrum);
+    //   }
+    //   else if ($(this).val()==="cymbalCrash"){
+    //     thirdPosition.push(cymbalCrash);
+    //   }
+    // });
+    // currentLoop.addSound(thirdPosition);
+    //
+    // var fourthPosition = [];
+    // $('.checbox4:checked').each(function () {
+    //   if ($(this).val()==="drumBass") {
+    //       fourthPosition.push(bassDrum);
+    //     }
+    //   else if ($(this).val()==="highHat") {
+    //     fourthPosition.push(highHat);
+    //   }
+    //   else if ($(this).val()==="snareDrum") {
+    //     fourthPosition.push(snareDrum);
+    //   }
+    //   else if ($(this).val()==="bongoDrum"){
+    //     fourthPosition.push(bongoDrum);
+    //   }
+    //   else if ($(this).val()==="cymbalCrash"){
+    //     fourthPosition.push(cymbalCrash);
+    //   }
+    // });
+    // currentLoop.addSound(fourthPosition);
+    //
+    // var fifthPosition = [];
+    // $('.checbox5:checked').each(function () {
+    //   if ($(this).val()==="drumBass") {
+    //       fifthPosition.push(bassDrum);
+    //     }
+    //   else if ($(this).val()==="highHat") {
+    //     fifthPosition.push(highHat);
+    //   }
+    //   else if ($(this).val()==="snareDrum") {
+    //     fifthPosition.push(snareDrum);
+    //   }
+    //   else if ($(this).val()==="bongoDrum"){
+    //     fifthPosition.push(bongoDrum);
+    //   }
+    //   else if ($(this).val()==="cymbalCrash"){
+    //     fifthPosition.push(cymbalCrash);
+    //   }
+    // });
+    // currentLoop.addSound(fifthPosition);
+    //
+    // var sixthPosition = [];
+    // $('.checbox6:checked').each(function () {
+    //   if ($(this).val()==="drumBass") {
+    //       sixthPosition.push(bassDrum);
+    //     }
+    //   else if ($(this).val()==="highHat") {
+    //     sixthPosition.push(highHat);
+    //   }
+    //   else if ($(this).val()==="snareDrum") {
+    //     sixthPosition.push(snareDrum);
+    //   }
+    //   else if ($(this).val()==="bongoDrum"){
+    //     sixthPosition.push(bongoDrum);
+    //   }
+    //   else if ($(this).val()==="cymbalCrash"){
+    //     sixthPosition.push(cymbalCrash);
+    //   }
+    // });
+    // currentLoop.addSound(sixthPosition);
+    //
+    // var seventhPosition = [];
+    // $('.checbox7:checked').each(function () {
+    //   if ($(this).val()==="drumBass") {
+    //       seventhPosition.push(bassDrum);
+    //     }
+    //   else if ($(this).val()==="highHat") {
+    //     seventhPosition.push(highHat);
+    //   }
+    //   else if ($(this).val()==="snareDrum") {
+    //     seventhPosition.push(snareDrum);
+    //   }
+    //   else if ($(this).val()==="bongoDrum"){
+    //     seventhPosition.push(bongoDrum);
+    //   }
+    //   else if ($(this).val()==="cymbalCrash"){
+    //     seventhPosition.push(cymbalCrash);
+    //   }
+    // });
+    // currentLoop.addSound(seventhPosition);
+    //
+    // var eigthPosition = [];
+    // $('.checbox4:checked').each(function () {
+    //   if ($(this).val()==="drumBass") {
+    //       fourthPosition.push(bassDrum);
+    //     }
+    //   else if ($(this).val()==="highHat") {
+    //     fourthPosition.push(highHat);
+    //   }
+    //   else if ($(this).val()==="snareDrum") {
+    //     fourthPosition.push(snareDrum);
+    //   }
+    //   else if ($(this).val()==="bongoDrum"){
+    //     fourthPosition.push(bongoDrum);
+    //   }
+    //   else if ($(this).val()==="cymbalCrash"){
+    //     fourthPosition.push(cymbalCrash);
+    //   }
+    // });
+    // currentLoop.addSound(fourthPosition);
+    //
+    // var fourthPosition = [];
+    // $('.checbox4:checked').each(function () {
+    //   if ($(this).val()==="drumBass") {
+    //       fourthPosition.push(bassDrum);
+    //     }
+    //   else if ($(this).val()==="highHat") {
+    //     fourthPosition.push(highHat);
+    //   }
+    //   else if ($(this).val()==="snareDrum") {
+    //     fourthPosition.push(snareDrum);
+    //   }
+    //   else if ($(this).val()==="bongoDrum"){
+    //     fourthPosition.push(bongoDrum);
+    //   }
+    //   else if ($(this).val()==="cymbalCrash"){
+    //     fourthPosition.push(cymbalCrash);
+    //   }
+    // });
+    //  currentLoop.addSound(fourthPosition);
+
 
     playInterval = setInterval(playLoop, 1000);
 
@@ -257,6 +381,9 @@ Sound.prototype.play = function() {
 
 function SoundLoop() {
   this.sounds = [];
+  for(var i=0; i<8; i++){
+    this.sounds[i] = [];
+  }
 }
 
 SoundLoop.prototype.addSound = function(sound) {
