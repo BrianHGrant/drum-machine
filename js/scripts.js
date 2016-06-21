@@ -127,10 +127,6 @@ function playSound2() {
 function Sound(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
-    // this.play = function(){
-    //   this.sound.loop = false;
-    //   this.sound.play();
-    // }
     this.stop = function(){
         this.sound.pause();
         this.sound.currentTime = 0;
@@ -138,8 +134,12 @@ function Sound(src) {
 };
 
 Sound.prototype.play = function() {
-  this.sound.loop = false;
+  this.sound.currentTime = 0;
+  this.sound.durationTime = 250;
   this.sound.play();
+  // if(this.sound.currentTime >this.sound.durationTime) {
+  //   this.sound.pause();
+  // }
 }
 
 function SoundLoop() {
