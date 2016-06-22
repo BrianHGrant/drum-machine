@@ -90,37 +90,6 @@ $(document).ready(function() {
     }
   });
 
-    //   highHat.play();
-
-    // if (event.keyCode === 87){
-    //   bassDrum.stop();
-    //   bassDrum.play();
-    // }
-    //
-    // if (event.keyCode === 69){
-    //   snareDrum.stop();
-    //   snareDrum.play();
-    // }
-    //
-    // if (event.keyCode === 82){
-    //   bongoDrum.stop();
-    //   bongoDrum.play();
-    // }
-    // if (event.keyCode === 84){
-    //   cymbalCrash.stop();
-    //   cymbalCrash.play();
-  // $("btn").keydown(function(e) {
-  //   // Sets the color when the key is down...
-  //   if(event.keyCode === 81) {
-  //   	$(this).css("background-color", "red");
-  //   }
-  // });
-  // $("button").keyup(function() {
-  //   // Removes the color when any key is lifted...
-  //   $(this).css("background-color", "");
-  // });
-
-
   $("#loop-btn").click(function(event){
     var bpm = parseInt($("#tempo").val());
     $("#loop-btn").hide();
@@ -187,47 +156,27 @@ $(document).ready(function() {
   });      
 });
 
-// function playLoop() {
-//   for(var j=0; j<8; j++){
-//     for (var i=0;i<currentLoop.sounds[j].length; i++) {
-//       if(currentLoop.sounds[j][i] === highHat){
-//         setTimeout(highHatSound, j*250);
-//       }
-//       if (currentLoop.sounds[j][i] === bassDrum) {
-//         setTimeout(bassSound, j*250);
-//       }
-//       if (currentLoop.sounds[j][i] === snareDrum){
-//         setTimeout(snareSound, j*250);
-//       }
-//       if (currentLoop.sounds[j][i] === bongoDrum){
-//         setTimeout(bongoSound, j*250);
-//       }
-//       if (currentLoop.sounds[j][i] === cymbalCrash){
-//         setTimeout(cymbalSound, j*250);
-//       }
-//     }
-//   }
-// }
-
-// function highHatSound() {
-//   highHat.play();
-// }
-//
-// function bassSound() {
-//   bassDrum.play();
-// }
-//
-// function snareSound() {
-//   snareDrum.play();
-// }
-//
-// function bongoSound() {
-//   bongoDrum.play();
-// }
-//
-// function cymbalSound() {
-//   cymbalCrash.play();
-// }
+function playLoop() {
+  for(var j=0; j<8; j++){
+    for (var i=0;i<currentLoop.sounds[j].length; i++) {
+      if(currentLoop.sounds[j][i] === highHat){
+        setTimeout(highHat.play(), j*250);
+      }
+      if (currentLoop.sounds[j][i] === bassDrum) {
+        setTimeout(bassDrum.play(), j*250);
+      }
+      if (currentLoop.sounds[j][i] === snareDrum){
+        setTimeout(snareSound, j*250);
+      }
+      if (currentLoop.sounds[j][i] === bongoDrum){
+        setTimeout(bongoSound, j*250);
+      }
+      if (currentLoop.sounds[j][i] === cymbalCrash){
+        setTimeout(cymbalSound, j*250);
+      }
+    }
+  }
+}
 
 function Sound(src) {
     this.sound = document.createElement("audio");
