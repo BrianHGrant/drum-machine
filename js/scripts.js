@@ -45,46 +45,32 @@ for(var i=1; i<6; i++){
     if (event.keyCode === 81){
       highHat.stop();
       highHat.play();
-      $("#high-hat").css("background-color", "red");
+      $("#instrument1").css("background-color", "grey");
     }
     if (event.keyCode === 87){
       bassDrum.stop();
       bassDrum.play();
+      $("#instrument2").css("background-color", "grey");
     }
 
     if (event.keyCode === 69){
       snareDrum.stop();
       snareDrum.play();
+      $("#instrument3").css("background-color", "grey");
     }
 
     if (event.keyCode === 82){
       bongoDrum.stop();
       bongoDrum.play();
+      $("#instrument4").css("background-color", "grey");
     }
     if (event.keyCode === 84){
       cymbalCrash.stop();
       cymbalCrash.play();
-    }
-  });
-  $("body").keydown(function(event){
-    if (event.keyCode === 81){
-      $("#instrument1").css("background-color", "grey");
-    }
-    if (event.keyCode === 87){
-      $("#instrument2").css("background-color", "grey");
-    }
-
-    if (event.keyCode === 69){
-      $("#instrument3").css("background-color", "grey");
-    }
-
-    if (event.keyCode === 82){
-      $("#instrument4").css("background-color", "grey");
-    }
-    if (event.keyCode === 84){
       $("#instrument5").css("background-color", "grey");
     }
   });
+
   $("body").keyup(function(event){
     if (event.keyCode === 81){
       $("#instrument1").css("background-color", "");
