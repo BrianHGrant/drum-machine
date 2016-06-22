@@ -178,6 +178,13 @@ $(document).ready(function() {
     });
   });
 
+  $("#clear-checked").click(function(evet){
+    for (i=0; i<8;i++){
+      $('.checbox' + i + ':checked').each(function () {
+         $(this).prop('checked', false);
+      });
+    }
+  });      
 });
 
 // function playLoop() {
