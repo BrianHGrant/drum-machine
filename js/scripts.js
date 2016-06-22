@@ -60,6 +60,7 @@ for(var i=1; i<6; i++){
       $("#instrument5").css("background-color", "grey");
     }
   });
+
   $("body").keyup(function(event){
     if (event.keyCode === 81){
       $("#instrument1").css("background-color", "");
