@@ -52,7 +52,7 @@ $(document).ready(function() {
   });
 
   $("#loop-btn").click(function(event){
-    var tempoInput = parseInt($("#tempo").val());
+    var bpm = parseInt($("#tempo").val());
     $("#loop-btn").hide();
     $("#stop-loop-btn").show();
     var currentLoop = new SoundLoop();
@@ -75,13 +75,8 @@ $(document).ready(function() {
         }
       });
     }
-    if (tempoInput === 1){
-      var tempo = 1000;
-    } else if (tempoInput === 2){
-      var tempo = 500;
-    } else {
-      var tempo = 250;
-    }
+
+    var tempo = 60000/ bpm;
     var loopTempo = tempo * 8;
 
     var playInterval = setInterval(function() {
