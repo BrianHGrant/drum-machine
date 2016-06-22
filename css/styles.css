@@ -2,12 +2,6 @@
 	display: none;
 }
 
-.sequencer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	transition: opacity 0.3s ease-in-out;
-}
 
 .row {
 	position: relative;
@@ -15,9 +9,6 @@
 	width: 100%;
 }
 
-.row:hover {
-	z-index: 100;
-}
 
 .sequencer label span {
 	position: relative;
@@ -34,14 +25,7 @@
 	background: blue;
 }
 
-/*.sequencer label.active input[type=checkbox]:checked ~ span {
-	background: blue;
-}*/
 
 .sequencer label input {
 	display: none;
 }
-
-/*.sequencer .active span {
-	border-color: #EB495D;
-}*/
