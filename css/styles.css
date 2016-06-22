@@ -1,3 +1,11 @@
+#heading {
+	background-color: white;
+	text-align: center;
+	color: black;
+	text-shadow: -1px 0 white, 0 1px #003B1F, 1px 0 #003B1F, 0 -1px #003B1F;
+
+}
+
 #stop-loop-btn {
 	display: none;
 }
@@ -24,7 +32,7 @@
 #instrument1,#instrument2,#instrument3,#instrument4,#instrument5{
 	position: relative;
 	display: block;
-	width: 7vh;
+	width: 10vh;
   height: 7vh;
   margin: 0.5vh;
 	border: 2px solid #89939B;
