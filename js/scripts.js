@@ -47,6 +47,7 @@ for(var i=1; i<6; i++){
       highHat.play();
       $("#instrument1").css("background-color", "grey");
     }
+
     if (event.keyCode === 87){
       bassDrum.stop();
       bassDrum.play();
