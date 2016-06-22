@@ -52,10 +52,10 @@ $(document).ready(function() {
   });
 
   $("#loop-btn").click(function(event){
+    var tempoInput = parseInt($("#tempo").val());
     $("#loop-btn").hide();
     $("#stop-loop-btn").show();
     var currentLoop = new SoundLoop();
-    var firstPosition = [];
     for(i=0; i<8;i++) {
       $('.checbox' + i + ':checked').each(function () {
         if ($(this).val()==="drumBass") {
@@ -75,27 +75,36 @@ $(document).ready(function() {
         }
       });
     }
+    if (tempoInput === 1){
+      var tempo = 1000;
+    } else if (tempoInput === 2){
+      var tempo = 500;
+    } else {
+      var tempo = 250;
+    }
+    var loopTempo = tempo * 8;
+
     var playInterval = setInterval(function() {
       for(var j=0; j<8; j++){
         for (var i=0;i<currentLoop.sounds[j].length; i++) {
           if(currentLoop.sounds[j][i] === highHat){
-            setTimeout(function() {highHat.play();}, j*250);
+            setTimeout(function() {highHat.play();}, j*tempo);
           }
           if (currentLoop.sounds[j][i] === bassDrum) {
-            setTimeout(function () {bassDrum.play();}, j*250);
+            setTimeout(function () {bassDrum.play();}, j*tempo);
           }
           if (currentLoop.sounds[j][i] === snareDrum){
-            setTimeout(function() {snareDrum.play();}, j*250);
+            setTimeout(function() {snareDrum.play();}, j*tempo);
           }
           if (currentLoop.sounds[j][i] === bongoDrum){
-            setTimeout(function() {bongoDrum.play();}, j*250);
+            setTimeout(function() {bongoDrum.play();}, j*tempo);
           }
           if (currentLoop.sounds[j][i] === cymbalCrash){
-            setTimeout(function() {cymbalCrash.play();}, j*250);
+            setTimeout(function() {cymbalCrash.play();}, j*tempo);
           }
         }
       }
-    }, 2000);
+    }, loopTempo);
     $("#stop-loop-btn").click(function(event){
       clearInterval(playInterval);
       $("#loop-btn").show();
