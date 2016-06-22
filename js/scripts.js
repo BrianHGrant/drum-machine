@@ -1,27 +1,42 @@
 $(document).ready(function() {
 
+for(var i=1; i<6; i++){
+  $(".instrument"+ i).append(
+       '<label><input type="checkbox" class ="checbox0" name="instrument' + i +'"' +'value="instrument' + i
+      +'"><span></span></label>'
+      +'<label><input type="checkbox" class ="checbox1" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
+      +'<label><input type="checkbox" class ="checbox2" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
+      +'<label><input type="checkbox" class ="checbox3" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
+      +'<label><input type="checkbox" class ="checbox4" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
+      +'<label><input type="checkbox" class ="checbox5" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
+      +'<label><input type="checkbox" class ="checbox6" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
+      +'<label><input type="checkbox" class ="checbox7" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
+
+  );
+}
+
   var highHat = new Sound("audio/HHOPEN2.wav");
-  $("#high-hat").click(function(event) {
+  $(".instrument2").click(function(event) {
     highHat.stop();
     highHat.play();
   });
   var bassDrum = new Sound("audio/BDRUM13.wav");
-  $("#bass-drum").click(function(event) {
+  $(".instrument3").click(function(event) {
     bassDrum.stop();
     bassDrum.play();
   });
   var snareDrum = new Sound("audio/SNARE12.wav");
-  $("#snare-drum").click(function(event) {
+  $(".instrument1").click(function(event) {
     snareDrum.stop();
     snareDrum.play();
   });
   var bongoDrum = new Sound("audio/BONGO1.wav");
-  $("#bongo-drum").click(function(event) {
+  $(".instrument4").click(function(event) {
     bongoDrum.stop();
     bongoDrum.play();
   });
   var cymbalCrash = new Sound("audio/crash.mp3");
-  $("#cymbal-crash").click(function(event) {
+  $(".instrument5").click(function(event) {
     cymbalCrash.stop();
     cymbalCrash.play();
   });
@@ -58,24 +73,53 @@ $(document).ready(function() {
     var currentLoop = new SoundLoop();
     for(i=0; i<8;i++) {
       $('.checbox' + i + ':checked').each(function () {
-        if ($(this).val()==="drumBass") {
+        if ($(this).val()==="instrument3") {
             currentLoop.sounds[i].push(bassDrum);
           }
-        else if ($(this).val()==="highHat") {
+        else if ($(this).val()==="instrument2") {
           currentLoop.sounds[i].push(highHat);
         }
-        else if ($(this).val()==="snareDrum") {
+        else if ($(this).val()==="instrument1") {
           currentLoop.sounds[i].push(snareDrum);
         }
-        else if ($(this).val()==="bongoDrum"){
+        else if ($(this).val()==="instrument4"){
           currentLoop.sounds[i].push(bongoDrum);
         }
-        else if ($(this).val()==="cymbalCrash"){
+        else if ($(this).val()==="instrument5"){
           currentLoop.sounds[i].push(cymbalCrash);
         }
       });
     }
+    if(bpm<60 || bpm>6000 || !bpm){
+      $(".tooSmall").text("bpm has to be in range of 60-6000");
+    }
 
+    else{
+      var tempo = 60000/ bpm;
+      var loopTempo = tempo * 8;
+
+      var playInterval = setInterval(function() {
+        for(var j=0; j<8; j++){
+          for (var i=0;i<currentLoop.sounds[j].length; i++) {
+            if(currentLoop.sounds[j][i] === highHat){
+              setTimeout(function() {highHat.play();}, j*tempo);
+            }
+            if (currentLoop.sounds[j][i] === bassDrum) {
+              setTimeout(function () {bassDrum.play();}, j*tempo);
+            }
+            if (currentLoop.sounds[j][i] === snareDrum){
+              setTimeout(function() {snareDrum.play();}, j*tempo);
+            }
+            if (currentLoop.sounds[j][i] === bongoDrum){
+              setTimeout(function() {bongoDrum.play();}, j*tempo);
+            }
+            if (currentLoop.sounds[j][i] === cymbalCrash){
+              setTimeout(function() {cymbalCrash.play();}, j*tempo);
+            }
+          }
+        }
+      }, loopTempo);
+    }
     var tempo = 60000/ bpm;
     var loopTempo = tempo * 8;
 
