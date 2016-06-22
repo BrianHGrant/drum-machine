@@ -119,7 +119,7 @@ $(document).ready(function() {
     var loopTempo = tempo * 8;
 
 
-    playLoop(currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo)
+    playLoop(currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo);
     var playInterval = setInterval(playLoop, loopTempo, currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo);
 
     $("#stop-loop-btn").click(function(event){
@@ -135,7 +135,7 @@ $(document).ready(function() {
          $(this).prop('checked', false);
       });
     }
-  });      
+  });
 });
 
 function playLoop(currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo) {
