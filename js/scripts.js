@@ -57,8 +57,6 @@ $(document).ready(function() {
     currentLoop = new SoundLoop();
     var firstPosition = [];
     for(i=0; i<8;i++) {
-
-
       $('.checbox' + i + ':checked').each(function () {
         if ($(this).val()==="drumBass") {
             currentLoop.sounds[i].push(bassDrum);
@@ -76,269 +74,34 @@ $(document).ready(function() {
           currentLoop.sounds[i].push(cymbalCrash);
         }
       });
-
-
     }
-    // $('.checbox:checked').each(function () {
-    //   if ($(this).val()==="drumBass") {
-    //       firstPosition.push(bassDrum);
-    //     }
-    //   else if ($(this).val()==="highHat") {
-    //     firstPosition.push(highHat);
-    //   }
-    //   else if ($(this).val()==="snareDrum") {
-    //     firstPosition.push(snareDrum);
-    //   }
-    //   else if ($(this).val()==="bongoDrum"){
-    //     firstPosition.push(bongoDrum);
-    //   }
-    //   else if ($(this).val()==="cymbalCrash"){
-    //     firstPosition.push(cymbalCrash);
-    //   }
-    // });
-    // currentLoop.addSound(firstPosition);
-
-    // var secondPosition = [];
-    // $('.checbox2:checked').each(function () {
-    //   if ($(this).val()==="drumBass") {
-    //       secondPosition.push(bassDrum);
-    //     }
-    //   else if ($(this).val()==="highHat") {
-    //     secondPosition.push(highHat);
-    //   }
-    //   else if ($(this).val()==="snareDrum") {
-    //     secondPosition.push(snareDrum);
-    //   }
-    //   else if ($(this).val()==="bongoDrum"){
-    //     secondPosition.push(bongoDrum);
-    //   }
-    //   else if ($(this).val()==="cymbalCrash"){
-    //     secondPosition.push(cymbalCrash);
-    //   }
-    // });
-    // currentLoop.addSound(secondPosition);
-    //
-    // var thirdPosition = [];
-    // $('.checbox3:checked').each(function () {
-    //   if ($(this).val()==="drumBass") {
-    //       thirdPosition.push(bassDrum);
-    //     }
-    //   else if ($(this).val()==="highHat") {
-    //     thirdPosition.push(highHat);
-    //   }
-    //   else if ($(this).val()==="snareDrum") {
-    //     thirdPosition.push(snareDrum);
-    //   }
-    //   else if ($(this).val()==="bongoDrum"){
-    //     thirdPosition.push(bongoDrum);
-    //   }
-    //   else if ($(this).val()==="cymbalCrash"){
-    //     thirdPosition.push(cymbalCrash);
-    //   }
-    // });
-    // currentLoop.addSound(thirdPosition);
-    //
-    // var fourthPosition = [];
-    // $('.checbox4:checked').each(function () {
-    //   if ($(this).val()==="drumBass") {
-    //       fourthPosition.push(bassDrum);
-    //     }
-    //   else if ($(this).val()==="highHat") {
-    //     fourthPosition.push(highHat);
-    //   }
-    //   else if ($(this).val()==="snareDrum") {
-    //     fourthPosition.push(snareDrum);
-    //   }
-    //   else if ($(this).val()==="bongoDrum"){
-    //     fourthPosition.push(bongoDrum);
-    //   }
-    //   else if ($(this).val()==="cymbalCrash"){
-    //     fourthPosition.push(cymbalCrash);
-    //   }
-    // });
-    // currentLoop.addSound(fourthPosition);
-    //
-    // var fifthPosition = [];
-    // $('.checbox5:checked').each(function () {
-    //   if ($(this).val()==="drumBass") {
-    //       fifthPosition.push(bassDrum);
-    //     }
-    //   else if ($(this).val()==="highHat") {
-    //     fifthPosition.push(highHat);
-    //   }
-    //   else if ($(this).val()==="snareDrum") {
-    //     fifthPosition.push(snareDrum);
-    //   }
-    //   else if ($(this).val()==="bongoDrum"){
-    //     fifthPosition.push(bongoDrum);
-    //   }
-    //   else if ($(this).val()==="cymbalCrash"){
-    //     fifthPosition.push(cymbalCrash);
-    //   }
-    // });
-    // currentLoop.addSound(fifthPosition);
-    //
-    // var sixthPosition = [];
-    // $('.checbox6:checked').each(function () {
-    //   if ($(this).val()==="drumBass") {
-    //       sixthPosition.push(bassDrum);
-    //     }
-    //   else if ($(this).val()==="highHat") {
-    //     sixthPosition.push(highHat);
-    //   }
-    //   else if ($(this).val()==="snareDrum") {
-    //     sixthPosition.push(snareDrum);
-    //   }
-    //   else if ($(this).val()==="bongoDrum"){
-    //     sixthPosition.push(bongoDrum);
-    //   }
-    //   else if ($(this).val()==="cymbalCrash"){
-    //     sixthPosition.push(cymbalCrash);
-    //   }
-    // });
-    // currentLoop.addSound(sixthPosition);
-    //
-    // var seventhPosition = [];
-    // $('.checbox7:checked').each(function () {
-    //   if ($(this).val()==="drumBass") {
-    //       seventhPosition.push(bassDrum);
-    //     }
-    //   else if ($(this).val()==="highHat") {
-    //     seventhPosition.push(highHat);
-    //   }
-    //   else if ($(this).val()==="snareDrum") {
-    //     seventhPosition.push(snareDrum);
-    //   }
-    //   else if ($(this).val()==="bongoDrum"){
-    //     seventhPosition.push(bongoDrum);
-    //   }
-    //   else if ($(this).val()==="cymbalCrash"){
-    //     seventhPosition.push(cymbalCrash);
-    //   }
-    // });
-    // currentLoop.addSound(seventhPosition);
-    //
-    // var eigthPosition = [];
-    // $('.checbox4:checked').each(function () {
-    //   if ($(this).val()==="drumBass") {
-    //       fourthPosition.push(bassDrum);
-    //     }
-    //   else if ($(this).val()==="highHat") {
-    //     fourthPosition.push(highHat);
-    //   }
-    //   else if ($(this).val()==="snareDrum") {
-    //     fourthPosition.push(snareDrum);
-    //   }
-    //   else if ($(this).val()==="bongoDrum"){
-    //     fourthPosition.push(bongoDrum);
-    //   }
-    //   else if ($(this).val()==="cymbalCrash"){
-    //     fourthPosition.push(cymbalCrash);
-    //   }
-    // });
-    // currentLoop.addSound(fourthPosition);
-    //
-    // var fourthPosition = [];
-    // $('.checbox4:checked').each(function () {
-    //   if ($(this).val()==="drumBass") {
-    //       fourthPosition.push(bassDrum);
-    //     }
-    //   else if ($(this).val()==="highHat") {
-    //     fourthPosition.push(highHat);
-    //   }
-    //   else if ($(this).val()==="snareDrum") {
-    //     fourthPosition.push(snareDrum);
-    //   }
-    //   else if ($(this).val()==="bongoDrum"){
-    //     fourthPosition.push(bongoDrum);
-    //   }
-    //   else if ($(this).val()==="cymbalCrash"){
-    //     fourthPosition.push(cymbalCrash);
-    //   }
-    // });
-    //  currentLoop.addSound(fourthPosition);
-
-
-    playInterval = setInterval(playLoop, 1000);
-
+    playInterval = setInterval(playLoop, 2000);
   });
   $("#stop-loop-btn").click(function(event){
     clearInterval(playInterval);
     $("#loop-btn").show();
     $("#stop-loop-btn").hide();
   });
-
 });
 
 function playLoop() {
-  for (var i=0;i<currentLoop.sounds[0].length; i++) {
-    if(currentLoop.sounds[0][i] === highHat){
-      setTimeout(highHatSound, 0);
-    }
-    if (currentLoop.sounds[0][i] === bassDrum) {
-      setTimeout(bassSound, 0);
-    }
-    if (currentLoop.sounds[0][i] === snareDrum){
-      setTimeout(snareSound, 0);
-    }
-    if (currentLoop.sounds[0][i] === bongoDrum){
-      setTimeout(bongoSound, 0);
-    }
-    if (currentLoop.sounds[0][i] === cymbalCrash){
-      setTimeout(cymbalSound, 0);
-    }
-  }
-
-  for (var i=0;i<currentLoop.sounds[1].length; i++) {
-    if(currentLoop.sounds[1][i] === highHat){
-      setTimeout(highHatSound, 250);
-    }
-    if (currentLoop.sounds[1][i] === bassDrum) {
-      setTimeout(bassSound, 250);
-    }
-    if (currentLoop.sounds[1][i] === snareDrum){
-      setTimeout(snareSound, 250);
-    }
-    if (currentLoop.sounds[1][i] === bongoDrum){
-      setTimeout(bongoSound, 250);
-    }
-    if (currentLoop.sounds[1][i] === cymbalCrash){
-      setTimeout(cymbalSound, 250);
-    }
-  }
-
-  for (var i=0;i<currentLoop.sounds[2].length; i++) {
-    if(currentLoop.sounds[2][i] === highHat){
-      setTimeout(highHatSound, 500);
-    }
-    if (currentLoop.sounds[2][i] === bassDrum) {
-      setTimeout(bassSound, 500);
-    }
-    if (currentLoop.sounds[2][i] === snareDrum){
-      setTimeout(snareSound, 500);
-    }
-    if (currentLoop.sounds[2][i] === bongoDrum){
-      setTimeout(bongoSound, 500);
-    }
-    if (currentLoop.sounds[2][i] === cymbalCrash){
-      setTimeout(cymbalSound, 500);
-    }
-  }
-  for (var i=0;i<currentLoop.sounds[3].length; i++) {
-    if(currentLoop.sounds[3][i] === highHat){
-      setTimeout(highHatSound, 750);
-    }
-    if (currentLoop.sounds[3][i] === bassDrum) {
-      setTimeout(bassSound, 750);
-    }
-    if (currentLoop.sounds[3][i] === snareDrum){
-      setTimeout(snareSound, 750);
-    }
-    if (currentLoop.sounds[3][i] === bongoDrum){
-      setTimeout(bongoSound, 750);
-    }
-    if (currentLoop.sounds[3][i] === cymbalCrash){
-      setTimeout(cymbalSound, 750);
+  for(var j=0; j<8; j++){
+    for (var i=0;i<currentLoop.sounds[j].length; i++) {
+      if(currentLoop.sounds[j][i] === highHat){
+        setTimeout(highHatSound, j*250);
+      }
+      if (currentLoop.sounds[j][i] === bassDrum) {
+        setTimeout(bassSound, j*250);
+      }
+      if (currentLoop.sounds[j][i] === snareDrum){
+        setTimeout(snareSound, j*250);
+      }
+      if (currentLoop.sounds[j][i] === bongoDrum){
+        setTimeout(bongoSound, j*250);
+      }
+      if (currentLoop.sounds[j][i] === cymbalCrash){
+        setTimeout(cymbalSound, j*250);
+      }
     }
   }
 }
