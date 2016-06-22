@@ -52,6 +52,8 @@ $(document).ready(function() {
   });
 
   $("#loop-btn").click(function(event){
+    var tempoInput = parseInt($("#tempo").val());
+    alert(tempoInput);
     $("#loop-btn").hide();
     $("#stop-loop-btn").show();
     currentLoop = new SoundLoop();
@@ -75,7 +77,17 @@ $(document).ready(function() {
         }
       });
     }
-    playInterval = setInterval(playLoop, 2000);
+    if (tempoInput === 1){
+      tempo = 1000;
+    } else if (tempoInput === 2){
+      tempo = 500;
+    } else {
+      tempo = 250;
+    }
+    loopTempo = tempo * 8;
+
+    playInterval = setInterval(playLoop, loopTempo);
+
   });
   $("#stop-loop-btn").click(function(event){
     clearInterval(playInterval);
@@ -84,23 +96,25 @@ $(document).ready(function() {
   });
 });
 
+
+
 function playLoop() {
   for(var j=0; j<8; j++){
     for (var i=0;i<currentLoop.sounds[j].length; i++) {
       if(currentLoop.sounds[j][i] === highHat){
-        setTimeout(highHatSound, j*250);
+        setTimeout(highHatSound, j*tempo);
       }
       if (currentLoop.sounds[j][i] === bassDrum) {
-        setTimeout(bassSound, j*250);
+        setTimeout(bassSound, j*tempo);
       }
       if (currentLoop.sounds[j][i] === snareDrum){
-        setTimeout(snareSound, j*250);
+        setTimeout(snareSound, j*tempo);
       }
       if (currentLoop.sounds[j][i] === bongoDrum){
-        setTimeout(bongoSound, j*250);
+        setTimeout(bongoSound, j*tempo);
       }
       if (currentLoop.sounds[j][i] === cymbalCrash){
-        setTimeout(cymbalSound, j*250);
+        setTimeout(cymbalSound, j*tempo);
       }
     }
   }
