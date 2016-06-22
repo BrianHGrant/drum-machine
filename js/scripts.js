@@ -45,6 +45,7 @@ for(var i=1; i<6; i++){
     if (event.keyCode === 81){
       highHat.stop();
       highHat.play();
+      $("#high-hat").css("background-color", "red");
     }
     if (event.keyCode === 87){
       bassDrum.stop();
@@ -63,6 +64,44 @@ for(var i=1; i<6; i++){
     if (event.keyCode === 84){
       cymbalCrash.stop();
       cymbalCrash.play();
+    }
+  });
+  $("body").keydown(function(event){
+    if (event.keyCode === 81){
+      $("#high-hat").css("background-color", "grey");
+    }
+    if (event.keyCode === 87){
+      $("#bass-drum").css("background-color", "grey");
+    }
+
+    if (event.keyCode === 69){
+      $("#snare-drum").css("background-color", "grey");
+    }
+
+    if (event.keyCode === 82){
+      $("#bongo-drum").css("background-color", "grey");
+    }
+    if (event.keyCode === 84){
+      $("#cymbal-crash").css("background-color", "grey");
+    }
+  });
+  $("body").keyup(function(event){
+    if (event.keyCode === 81){
+      $("#high-hat").css("background-color", "");
+    }
+    if (event.keyCode === 87){
+      $("#bass-drum").css("background-color", "");
+    }
+
+    if (event.keyCode === 69){
+      $("#snare-drum").css("background-color", "");
+    }
+
+    if (event.keyCode === 82){
+      $("#bongo-drum").css("background-color", "");
+    }
+    if (event.keyCode === 84){
+      $("#cymbal-crash").css("background-color", "");
     }
   });
 
@@ -123,27 +162,10 @@ for(var i=1; i<6; i++){
     var tempo = 60000/ bpm;
     var loopTempo = tempo * 8;
 
-    var playInterval = setInterval(function() {
-      for(var j=0; j<8; j++){
-        for (var i=0;i<currentLoop.sounds[j].length; i++) {
-          if(currentLoop.sounds[j][i] === highHat){
-            setTimeout(function() {highHat.play();}, j*tempo);
-          }
-          if (currentLoop.sounds[j][i] === bassDrum) {
-            setTimeout(function () {bassDrum.play();}, j*tempo);
-          }
-          if (currentLoop.sounds[j][i] === snareDrum){
-            setTimeout(function() {snareDrum.play();}, j*tempo);
-          }
-          if (currentLoop.sounds[j][i] === bongoDrum){
-            setTimeout(function() {bongoDrum.play();}, j*tempo);
-          }
-          if (currentLoop.sounds[j][i] === cymbalCrash){
-            setTimeout(function() {cymbalCrash.play();}, j*tempo);
-          }
-        }
-      }
-    }, loopTempo);
+
+    playLoop(currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo);
+    var playInterval = setInterval(playLoop, loopTempo, currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo);
+
     $("#stop-loop-btn").click(function(event){
       clearInterval(playInterval);
       $("#loop-btn").show();
@@ -151,49 +173,26 @@ for(var i=1; i<6; i++){
     });
   });
 
+  $("#clear-checked").click(function(evet){
+    for (i=0; i<8;i++){
+      $('.checbox' + i + ':checked').each(function () {
+         $(this).prop('checked', false);
+      });
+    }
+  });
 });
 
-// function playLoop() {
-//   for(var j=0; j<8; j++){
-//     for (var i=0;i<currentLoop.sounds[j].length; i++) {
-//       if(currentLoop.sounds[j][i] === highHat){
-//         setTimeout(highHatSound, j*250);
-//       }
-//       if (currentLoop.sounds[j][i] === bassDrum) {
-//         setTimeout(bassSound, j*250);
-//       }
-//       if (currentLoop.sounds[j][i] === snareDrum){
-//         setTimeout(snareSound, j*250);
-//       }
-//       if (currentLoop.sounds[j][i] === bongoDrum){
-//         setTimeout(bongoSound, j*250);
-//       }
-//       if (currentLoop.sounds[j][i] === cymbalCrash){
-//         setTimeout(cymbalSound, j*250);
-//       }
-//     }
-//   }
-// }
+function playLoop(currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo) {
+  for(var j=0; j<8; j++){
+    for (var i=0;i<currentLoop.sounds[j].length; i++) {
+      setTimeout(playSound, j*tempo, currentLoop.sounds[j][i])
+    }
+  }
+}
 
-// function highHatSound() {
-//   highHat.play();
-// }
-//
-// function bassSound() {
-//   bassDrum.play();
-// }
-//
-// function snareSound() {
-//   snareDrum.play();
-// }
-//
-// function bongoSound() {
-//   bongoDrum.play();
-// }
-//
-// function cymbalSound() {
-//   cymbalCrash.play();
-// }
+function playSound(sound) {
+  sound.play();
+}
 
 function Sound(src) {
     this.sound = document.createElement("audio");
