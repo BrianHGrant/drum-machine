@@ -30,6 +30,7 @@ $(document).ready(function() {
     if (event.keyCode === 81){
       highHat.stop();
       highHat.play();
+      $("#high-hat").css("background-color", "red");
     }
     if (event.keyCode === 87){
       bassDrum.stop();
@@ -50,6 +51,75 @@ $(document).ready(function() {
       cymbalCrash.play();
     }
   });
+  $("body").keydown(function(event){
+    if (event.keyCode === 81){
+      $("#high-hat").css("background-color", "grey");
+    }
+    if (event.keyCode === 87){
+      $("#bass-drum").css("background-color", "grey");
+    }
+
+    if (event.keyCode === 69){
+      $("#snare-drum").css("background-color", "grey");
+    }
+
+    if (event.keyCode === 82){
+      $("#bongo-drum").css("background-color", "grey");
+    }
+    if (event.keyCode === 84){
+      $("#cymbal-crash").css("background-color", "grey");
+    }
+  });
+  $("body").keyup(function(event){
+    if (event.keyCode === 81){
+      $("#high-hat").css("background-color", "");
+    }
+    if (event.keyCode === 87){
+      $("#bass-drum").css("background-color", "");
+    }
+
+    if (event.keyCode === 69){
+      $("#snare-drum").css("background-color", "");
+    }
+
+    if (event.keyCode === 82){
+      $("#bongo-drum").css("background-color", "");
+    }
+    if (event.keyCode === 84){
+      $("#cymbal-crash").css("background-color", "");
+    }
+  });
+
+    //   highHat.play();
+
+    // if (event.keyCode === 87){
+    //   bassDrum.stop();
+    //   bassDrum.play();
+    // }
+    //
+    // if (event.keyCode === 69){
+    //   snareDrum.stop();
+    //   snareDrum.play();
+    // }
+    //
+    // if (event.keyCode === 82){
+    //   bongoDrum.stop();
+    //   bongoDrum.play();
+    // }
+    // if (event.keyCode === 84){
+    //   cymbalCrash.stop();
+    //   cymbalCrash.play();
+  // $("btn").keydown(function(e) {
+  //   // Sets the color when the key is down...
+  //   if(event.keyCode === 81) {
+  //   	$(this).css("background-color", "red");
+  //   }
+  // });
+  // $("button").keyup(function() {
+  //   // Removes the color when any key is lifted...
+  //   $(this).css("background-color", "");
+  // });
+
 
   $("#loop-btn").click(function(event){
     var tempoInput = parseInt($("#tempo").val());
@@ -95,8 +165,6 @@ $(document).ready(function() {
     $("#stop-loop-btn").hide();
   });
 });
-
-
 
 function playLoop() {
   for(var j=0; j<8; j++){
