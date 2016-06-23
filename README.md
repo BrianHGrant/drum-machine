@@ -1,11 +1,14 @@
 # Project Name
-Epicodus TR-909 Drum Machine
+* Epicodus TR-909 Drum Machine
+* Introduction to Programming
+* Week 5 Group Project
+* 06.24.2016
 
 ## By
-Sami Al-Jamal
-Adam Luchini
-Brian H Grant
-Bo Zhao
+* Sami Al-Jamal
+* Adam Luchini
+* Brian H Grant
+* Bo Zhao
 
 ## Description
 The Epicodus TR-909 Drum Machine is a rhythm composer capable of looping 5 percussion noises (high hat, bass, snare, bongo, and cymbal). After loading the page, the user can select where in the measure to play a sample on the 5x8 grid. After the user inputs their desired percussion composition, the beats per minute (BPM) field is filled with a numeric input between 60-6000 and the "start" button is pressed. Voila! The sample loops until the user clicks the "stop" button. The existing loop can be modified, or, if the user wishes, the "clear" button can be clicked and the grid resets.
@@ -39,4 +42,6 @@ Feel free to contact us at:
 (CONTACT INFO FOR EACH MEMBER IF YOU WANT)
 
 ## License
-This software is licensed uner the MIT license
+This software is licensed under the MIT license
+
+## Copyright (c) 2016 All Rights Reserved.
