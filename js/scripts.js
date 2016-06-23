@@ -118,40 +118,40 @@ $(document).ready(function() {
     }
 
     $("#stop-loop-btn").click(function(event){
+      $("#help-message").show();
+      setTimeout(function() {
+        $("#help-message").hide();
+      }, (60000/ bpm)*8);
       clearInterval(playInterval);
       $(".tooSmall").text("");
-      $("#tempo").val("");
       $("#loop-btn").show();
       $("#stop-loop-btn").hide();
+
+    });
+    $("#clear-checked").click(function(event){
+      $("#stop-loop-btn").click();
+      setTimeout(function() {
+          for (i=0; i<8;i++){
+          $('.checbox' + i + ':checked').each(function () {
+             $(this).prop('checked', false);
+          });
+        }
+      });
     });
   });
 
-  $("#clear-checked").click(function(evet){
-    for (i=0; i<8;i++){
-      $('.checbox' + i + ':checked').each(function () {
-         $(this).prop('checked', false);
-      });
-    }
+  $("#clear-checked").click(function(event){
+    setTimeout(function() {
+      for (i=0; i<8;i++){
+        colorBack(i, "");
+        $('.checbox' + i + ':checked').each(function () {
+           $(this).prop('checked', false);
+        });
+      }
+    });
   });
 });
 
-function playLoop(currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo) {
-  for(var j=0; j<8; j++){
-    setTimeout(colorBack, j*tempo, j, "grey");
-    setTimeout(colorBack, j*tempo+tempo, j, "blue");
-    for (var i=0;i<currentLoop.sounds[j].length; i++) {
-      setTimeout(playSound, j*tempo, currentLoop.sounds[j][i]);
-    }
-  }
-}
-
-function colorBack(j, color) {
-  $(".checbox" + j +":input[type=checkbox]:checked ~ span").css("background-color", color);
-}
-
-function playSound(sound) {
-  sound.play();
-}
 
 function Sound(src) {
     this.sound = document.createElement("audio");
@@ -173,4 +173,22 @@ function SoundLoop() {
   for(var i=0; i<8; i++){
     this.sounds[i] = [];
   }
+}
+
+function playLoop(currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo) {
+  for(var j=0; j<8; j++){
+    setTimeout(colorBack, j*tempo, j, "grey");
+    setTimeout(colorBack, j*tempo+tempo, j, "");
+    for (var i=0;i<currentLoop.sounds[j].length; i++) {
+      setTimeout(playSound, j*tempo, currentLoop.sounds[j][i]);
+    }
+  }
+}
+
+function colorBack(j, color) {
+  $(".checbox" + j +":input[type=checkbox]:checked ~ span").css("background-color", color);
+}
+
+function playSound(sound) {
+  sound.play();
 }

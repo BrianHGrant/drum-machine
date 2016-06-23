@@ -40,6 +40,11 @@
 	cursor: pointer;
 }
 
+#help-message {
+	display: none;
+	font: red;
+}
+
 .sequencer input[type=checkbox]:checked ~ span {
 	background: blue;
 }
