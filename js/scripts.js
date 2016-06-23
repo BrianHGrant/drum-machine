@@ -25,6 +25,26 @@ $(document).ready(function() {
     $(".gridpage").hide();
     $(".instruction").show();
   });
+  var showInstructions = true;
+  if (showInstructions === true) {
+    $("#message-display").text("1. Click box next to instrument to play on chosen beat.");
+    setTimeout(function() {
+      $("#message-display").text("2. Enter Desired Beats per Minute (BPM).");
+    }, 5000);
+    setTimeout(function() {
+      $("#message-display").text("3. Click Start to Play Loop!");
+    }, 10000);
+    var instructionInterval = setInterval(function() {
+      setTimeout(function() {
+        $("#message-display").text("1. Click box next to instrument to play on chosen beat.");
+      }, 0);
+      setTimeout(function() {
+        $("#message-display").text("2. Enter Desired Beats per Minute (BPM).");
+      }, 5000);
+      setTimeout(function() {
+        $("#message-display").text("3. Click Start to Play Loop!");
+      }, 10000);}, 15000);
+  }
 
   var highHat = new Sound("audio/HHOPEN2.wav");
   var bassDrum = new Sound("audio/BDRUM13.wav");
@@ -118,12 +138,15 @@ $(document).ready(function() {
       });
     }
     if(bpm<60 || bpm>6000 || !bpm){
+
+      showInstructions = false;
       $("#message-display").text("BPM has to be in range of 60-6000");
       $("#stop-loop-btn").hide();
       $("#loop-btn").show();
     }
 
     else{
+      showInstructions = false;
       $("#message-display").text("Loop Playing");
       var tempo = 60000/ bpm;
       var loopTempo = tempo * 8;
@@ -132,12 +155,12 @@ $(document).ready(function() {
     }
 
     $("#stop-loop-btn").click(function(event){
+      showInstructions = false;
       $("#message-display").text("Loop will stop at end.");
       setTimeout(function() {
-        $("#message-display").text("Click Start to play!");
+        showInstructions = true;
       }, (60000/ bpm)*8);
       clearInterval(playInterval);
-      $(".tooSmall").text("");
       $("#loop-btn").show();
       $("#stop-loop-btn").hide();
 
@@ -185,7 +208,7 @@ function SoundLoop() {
 
 function playLoop(currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo) {
   for(var j=0; j<8; j++){
-    setTimeout(colorBack, j*tempo, j, "grey");
+    setTimeout(colorBack, j*tempo, j, "#385AA1");
     setTimeout(colorBack, j*tempo+tempo, j, "");
     for (var i=0;i<currentLoop.sounds[j].length; i++) {
       setTimeout(playSound, j*tempo, currentLoop.sounds[j][i]);
