@@ -2,15 +2,14 @@ $(document).ready(function() {
 
   for(var i=1; i<6; i++){
     $(".instrument"+ i).append(
-         '<label><input type="checkbox" class ="checbox0" name="instrument' + i +'"' +'value="instrument' + i
-        +'"><span></span></label>'
-        +'<label><input type="checkbox" class ="checbox1" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
-        +'<label><input type="checkbox" class ="checbox2" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
-        +'<label><input type="checkbox" class ="checbox3" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
-        +'<label><input type="checkbox" class ="checbox4" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
-        +'<label><input type="checkbox" class ="checbox5" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
-        +'<label><input type="checkbox" class ="checbox6" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
-        +'<label><input type="checkbox" class ="checbox7" name="instrument' + i +'"' +'value="instrument' + i +'"><span></span></label>'
+         '<label><input type="checkbox" class ="checbox0" name="instrument' + i +'"value="instrument' + i +'"><span></span></label>'
+        +'<label><input type="checkbox" class ="checbox1" name="instrument' + i +'"value="instrument' + i +'"><span></span></label>'
+        +'<label><input type="checkbox" class ="checbox2" name="instrument' + i +'"value="instrument' + i +'"><span></span></label>'
+        +'<label><input type="checkbox" class ="checbox3" name="instrument' + i +'"value="instrument' + i +'"><span></span></label>'
+        +'<label><input type="checkbox" class ="checbox4" name="instrument' + i +'"value="instrument' + i +'"><span></span></label>'
+        +'<label><input type="checkbox" class ="checbox5" name="instrument' + i +'"value="instrument' + i +'"><span></span></label>'
+        +'<label><input type="checkbox" class ="checbox6" name="instrument' + i +'"value="instrument' + i +'"><span></span></label>'
+        +'<label><input type="checkbox" class ="checbox7" name="instrument' + i +'"value="instrument' + i +'"><span></span></label>'
 
     );
   }
@@ -21,13 +20,13 @@ $(document).ready(function() {
   var bongoDrum = new Sound("audio/BONGO1.wav");
   var cymbalCrash = new Sound("audio/crash.mp3");
 
-  $(".instrument2").click(function(event) {
+  $(".instrument1").click(function(event) {
     highHat.play();
   });
-  $(".instrument3").click(function(event) {
+  $(".instrument2").click(function(event) {
     bassDrum.play();
   });
-  $(".instrument1").click(function(event) {
+  $(".instrument3").click(function(event) {
     snareDrum.play();
   });
   $(".instrument4").click(function(event) {
@@ -89,13 +88,13 @@ $(document).ready(function() {
     var currentLoop = new SoundLoop();
     for(i=0; i<8;i++) {
       $('.checbox' + i + ':checked').each(function () {
-        if ($(this).val()==="instrument3") {
-            currentLoop.sounds[i].push(bassDrum);
+        if ($(this).val()==="instrument1") {
+            currentLoop.sounds[i].push(highHat);
           }
         else if ($(this).val()==="instrument2") {
-          currentLoop.sounds[i].push(highHat);
+          currentLoop.sounds[i].push(bassDrum);
         }
-        else if ($(this).val()==="instrument1") {
+        else if ($(this).val()==="instrument3") {
           currentLoop.sounds[i].push(snareDrum);
         }
         else if ($(this).val()==="instrument4"){
@@ -107,10 +106,14 @@ $(document).ready(function() {
       });
     }
     if(bpm<60 || bpm>6000 || !bpm){
+      $(".tooSmall").show();
       $(".tooSmall").text("BPM has to be in range of 60-6000");
+      $("#stop-loop-btn").hide();
+      $("#loop-btn").show();
     }
 
     else{
+      $(".tooSmall").hide();
       var tempo = 60000/ bpm;
       var loopTempo = tempo * 8;
       playLoop(currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo);
@@ -138,7 +141,7 @@ $(document).ready(function() {
 function playLoop(currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo) {
   for(var j=0; j<8; j++){
     setTimeout(colorBack, j*tempo, j, "grey");
-    setTimeout(colorBack, j*tempo+tempo, j, "blue");
+    setTimeout(colorBack, j*tempo+tempo, j, "");
     for (var i=0;i<currentLoop.sounds[j].length; i++) {
       setTimeout(playSound, j*tempo, currentLoop.sounds[j][i]);
     }
