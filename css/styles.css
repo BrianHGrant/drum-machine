@@ -1,9 +1,13 @@
+.gridpage{
+	display: none;
+}
+
+
 #heading {
 	background-color: white;
 	text-align: center;
 	color: black;
 	text-shadow: -1px 0 white, 0 1px #003B1F, 1px 0 #003B1F, 0 -1px #003B1F;
-
 }
 
 #stop-loop-btn {
