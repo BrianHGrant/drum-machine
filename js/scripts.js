@@ -15,11 +15,13 @@ $(document).ready(function() {
   }
 
   $("#show-drums").click(function(event) {
+    $("#bgvid")[0].pause();
     $(".instruction").hide();
     $(".gridpage").show();
   });
 
   $("#show-instruction").click(function(event) {
+    $("#bgvid")[0].play();
     $(".gridpage").hide();
     $(".instruction").show();
   });

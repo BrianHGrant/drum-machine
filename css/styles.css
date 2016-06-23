@@ -1,3 +1,16 @@
+body {
+    background-image: url("../img/concert2.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+background-color: #14141E;
+}
+img{
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
 .gridpage{
 	display: none;
 }
