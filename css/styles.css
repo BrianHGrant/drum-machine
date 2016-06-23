@@ -50,7 +50,11 @@
 }
 
 .sequencer input[type=checkbox]:checked ~ span {
-	background: blue;
+	background-image: url("../img/Drums-Sample.png");
+	background-size: contain;
+}
+
+.sequencer input ~ span {
 }
 
 
@@ -60,4 +64,18 @@
 
 .selected {
 	background: grey;
+}
+
+.message-box {
+ height: 75px;
+ width: 300px;
+ overflow: hidden;
+ position: relative;
+ margin: 0.5em;
+ padding: 0.3em;
+ border-style: inset;
+ font-family: monospace;
+ color: green;
+ background-color: black;
+ text-align: center;
 }

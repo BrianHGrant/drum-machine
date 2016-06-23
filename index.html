@@ -22,6 +22,13 @@
       <button type="button" id="show-drums" class= "btn btn-danger" name="button">show me the drums!</button>
     </div>
     <div class="container gridpage">
+      <div class="row">
+        <div class="col-xs-offset-2 col-xs-8">
+          <div class="message-box">
+            <h4 id="message-display">Click Start to Play!</h4>
+          </div>
+        </div>
+      </div>
       <div id="loop-sound">
         <div id="sequencer" class="sequencer">
           <div class="row instrument1">
@@ -40,14 +47,23 @@
             <button type="button" class="btn btn-primary" id="instrument5">cymbal</button>
           </div>
         </div>
-        <button type="button" id="loop-btn" class= "btn" name="name">Start</button>
-        <button type="button" id="stop-loop-btn" class= "btn btn-danger" name="name">Stop</button>
-        <button type="button" id="clear-checked" class= "btn" name="name">clear</button>
-        <button type="button" id="show-instruction" class= "btn btn-danger" name="button">show me the instructions!</button>
-        <label for="number">Enter BPM</label>
-        <input type="number" id="tempo" name="number" value="">
+        <div class="row">
+          <div class="col-xs-offset-3 col-xs-6">
+            <br>
+            <label for="number">Enter BPM</label>
+            <input type="number" id="tempo" name="number" value="">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-offset-3 col-xs-6">
+            <br>
+            <button type="button" id="loop-btn" class= "btn" name="name">Start</button>
+            <button type="button" id="stop-loop-btn" class= "btn btn-danger" name="name">Stop</button>
+            <button type="button" id="clear-checked" class= "btn" name="name">Reset</button>
+            <button type="button" id="show-instruction" class= "btn btn-primary" name="button">Instructions</button>
+        </div>
+      </div>
         <h3 id="help-message">Will stop playing at end of loop.</h3>
-        <h1 class="tooSmall"></h1>
       </div>
     </div>
   </body>

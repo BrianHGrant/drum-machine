@@ -116,14 +116,13 @@ $(document).ready(function() {
       });
     }
     if(bpm<60 || bpm>6000 || !bpm){
-      $(".tooSmall").show();
-      $(".tooSmall").text("BPM has to be in range of 60-6000");
+      $("#message-display").text("BPM has to be in range of 60-6000");
       $("#stop-loop-btn").hide();
       $("#loop-btn").show();
     }
 
     else{
-      $(".tooSmall").hide();
+      $("#message-display").text("Loop Playing");
       var tempo = 60000/ bpm;
       var loopTempo = tempo * 8;
       playLoop(currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo);
@@ -131,9 +130,9 @@ $(document).ready(function() {
     }
 
     $("#stop-loop-btn").click(function(event){
-      $("#help-message").show();
+      $("#message-display").text("Loop will stop at end.");
       setTimeout(function() {
-        $("#help-message").hide();
+        $("#message-display").text("Click Start to play!");
       }, (60000/ bpm)*8);
       clearInterval(playInterval);
       $(".tooSmall").text("");
@@ -143,15 +142,9 @@ $(document).ready(function() {
     });
     $("#clear-checked").click(function(event){
       $("#stop-loop-btn").click();
-      setTimeout(function() {
-          for (i=0; i<8;i++){
-          $('.checbox' + i + ':checked').each(function () {
-             $(this).prop('checked', false);
-          });
-        }
-      });
     });
   });
+
 
   $("#clear-checked").click(function(event){
     setTimeout(function() {
@@ -179,6 +172,7 @@ Sound.prototype.stop = function() {
   this.sound.pause();
   this.sound.currentTime = 0;
 }
+
 
 function SoundLoop() {
   this.sounds = [];
