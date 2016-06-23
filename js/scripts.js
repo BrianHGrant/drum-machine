@@ -14,6 +14,16 @@ $(document).ready(function() {
     );
   }
 
+  $("#show-drums").click(function(event) {
+    $(".instruction").hide();
+    $(".gridpage").show();
+  });
+
+  $("#show-instruction").click(function(event) {
+    $(".gridpage").hide();
+    $(".instruction").show();
+  });
+
   var highHat = new Sound("audio/HHOPEN2.wav");
   var bassDrum = new Sound("audio/BDRUM13.wav");
   var snareDrum = new Sound("audio/SNARE12.wav");
