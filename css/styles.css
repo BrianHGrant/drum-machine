@@ -12,11 +12,6 @@ img {
 	bottom: 0;
 }
 
-.gridpage {
-	display: none;
-}
-
-
 #heading {
 	font-family: 'Candal', sans-serif;
 	font-size: 45px;
@@ -27,10 +22,26 @@ img {
 	text-shadow: -1px 0 white, 0 1px #003B1F, 1px 0 #003B1F, 0 -1px #003B1F;
 }
 
-#stop-loop-btn {
+video {
+	width: 75%;
+	height: 75%;
+	margin-left: 12.5%;
+}
+
+.gridpage {
 	display: none;
 }
 
+.message-box {
+ height: 85px;
+ width: 250px;
+ margin: 0.5em;
+ padding: 0 0.3em 0.5em 0.3em;
+ border-style: inset;
+ color: white;
+ background:rgba(0,0,0,0.3);
+ text-align: center;
+}
 
 .row {
 	position: relative;
@@ -38,8 +49,12 @@ img {
 	width: 100%;
 }
 
+.sequencer {
+	width: 75%;
+	margin-left: 12.5%;
+}
 
-.sequencer label span {
+.sequencer input ~ span {
 	position: relative;
 	display: flex;
 	width: 7vh;
@@ -48,15 +63,25 @@ img {
 	border: 2px outset #89939B;
 	border-radius: 3px;
 	cursor: pointer;
+	background:rgba(250,250,250,0.5);
+}
+
+.sequencer input[type=checkbox]:checked ~ span {
+	background-image: url("../img/Drums-Sample.png");
+	background-size: contain;
+}
+
+.sequencer label input {
+	display: none;
 }
 
 #instrument1,#instrument2,#instrument3,#instrument4,#instrument5{
 	position: relative;
 	display: block;
-	min-width: 10vh;
+	min-width: 12vh;
+	max-width: 12vh;
   height: 7vh;
   margin: 0.5vh;
-	/*border: 2px outset #89939B;*/
 	border-radius: 3px;
 	cursor: pointer;
 	opacity: 0.8;
@@ -71,54 +96,12 @@ label {
 	font-size: 1.2em;
 }
 
-.sequencer input ~ span {
-	 background:rgba(250,250,250,0.5);
-}
-
-.sequencer input[type=checkbox]:checked ~ span {
-	background-image: url("../img/Drums-Sample.png");
-	background-size: contain;
-}
-
-.sequencer label input {
-	display: none;
-}
-
-.sequencer{
-	margin-left: 10%;
-}
-
 .selected {
-	background: grey;
-}
-
-.message-box {
- height: 85px;
- width: 250px;
- overflow: hidden;
- position: relative;
- margin: 0.5em;
- padding: 0.3em;
- padding-bottom: 0.5em;
- border-style: inset;
- color: white;
- background:rgba(0,0,0,0.3);
- text-align: center;
+	background-color: grey;
 }
 
 #rock-on-btn {
 	margin-top: 0.2em;
-}
-
-.instructions {
-	padding: 0.3em;
-	background:rgba(0,0,0,0.5);
-	color: white;
-	font-size: 1.5em;
-}
-
-#loop-btn, #stop-loop-btn, #clear-checked, #show-instruction {
-	margin: 0.2em;
 }
 
 #controls {
@@ -126,4 +109,12 @@ label {
 	margin-left: 35%;
 	background:rgba(250,250,250,0.5);
 	padding: 0.5em;
+}
+
+#stop-loop-btn {
+	display: none;
+}
+
+#loop-btn, #stop-loop-btn, #clear-checked, #show-instruction {
+	margin: 0.2em;
 }

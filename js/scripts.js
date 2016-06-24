@@ -26,9 +26,7 @@ $(document).ready(function() {
       $("#instruction-display").text("3. Click Start to Play Loop!");
     }, 10000);
     var instructionInterval = setInterval(function() {
-      setTimeout(function() {
-        $("#instruction-display").text("1. Click box next to instrument to play on chosen beat.");
-      }, 0);
+      $("#instruction-display").text("1. Click box next to instrument to play on chosen beat.");
       setTimeout(function() {
         $("#instruction-display").text("2. Enter Desired Beats per Minute (BPM).");
       }, 5000);
@@ -171,6 +169,7 @@ $(document).ready(function() {
   });
 
   $("#clear-checked").click(function(event){
+    $("#tempo").val("");
     setTimeout(function() {
       for (i=0; i<8;i++){
         colorBack(i, "");
