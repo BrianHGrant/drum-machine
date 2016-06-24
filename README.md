@@ -32,7 +32,7 @@ The capabilities of the Epicodus TR-909 are as follows:
 
 
 ## Installation
-The Epicodus TR-909 can be accessed through a webpage at (INSERT LINK)
+The Epicodus TR-909 can be accessed through a webpage at https://brianhgrant.github.io/drum-machine/
 
 Our git repository is also available at https://github.com/BrianHGrant/drum-machine
 
@@ -41,7 +41,7 @@ HTML5, CSS, JavaScript, jquery-3.0.0.js, bootstrap.css
 
 ## Contact
 Feel free to contact us at:
-(CONTACT INFO FOR EACH MEMBER IF YOU WANT)
+(Brian Grant: bhgrant8@gmail.com, Adam Luchini: aluchini@gmail.com, Bo Zhao: zhaobo419@gmail.com, Sami Al-Jamal: sami.m.aljamal@gmail.com)
 
 ## License
 This software is licensed under the MIT license
