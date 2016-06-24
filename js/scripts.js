@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   for(var i=1; i<6; i++){
     $(".instrument"+ i).append(
-         '<label><input type="checkbox" class ="checbox0" name="instrument' + i +'"value="instrument' + i +'"><span></span></label>'
+         '<label><input type="checkbox" class ="checbox0" name="instrument' + i +'"value="instrument' + i +'"><span></span></label><br>'
         +'<label><input type="checkbox" class ="checbox1" name="instrument' + i +'"value="instrument' + i +'"><span></span></label>'
         +'<label><input type="checkbox" class ="checbox2" name="instrument' + i +'"value="instrument' + i +'"><span></span></label>'
         +'<label><input type="checkbox" class ="checbox3" name="instrument' + i +'"value="instrument' + i +'"><span></span></label>'
@@ -18,6 +18,24 @@ $(document).ready(function() {
     $("#bgvid")[0].pause();
     $(".instruction").hide();
     $(".gridpage").show();
+    $("#instruction-display").text("1. Click box next to instrument to play on chosen beat.");
+    setTimeout(function() {
+      $("#instruction-display").text("2. Enter Desired Beats per Minute (BPM).");
+    }, 5000);
+    setTimeout(function() {
+      $("#instruction-display").text("3. Click Start to Play Loop!");
+    }, 10000);
+    var instructionInterval = setInterval(function() {
+      setTimeout(function() {
+        $("#instruction-display").text("1. Click box next to instrument to play on chosen beat.");
+      }, 0);
+      setTimeout(function() {
+        $("#instruction-display").text("2. Enter Desired Beats per Minute (BPM).");
+      }, 5000);
+      setTimeout(function() {
+        $("#instruction-display").text("3. Click Start to Play Loop!");
+      }, 10000);
+    }, 15000);
   });
 
   $("#show-instruction").click(function(event) {
@@ -25,26 +43,6 @@ $(document).ready(function() {
     $(".gridpage").hide();
     $(".instruction").show();
   });
-  var showInstructions = true;
-  if (showInstructions === true) {
-    $("#message-display").text("1. Click box next to instrument to play on chosen beat.");
-    setTimeout(function() {
-      $("#message-display").text("2. Enter Desired Beats per Minute (BPM).");
-    }, 5000);
-    setTimeout(function() {
-      $("#message-display").text("3. Click Start to Play Loop!");
-    }, 10000);
-    var instructionInterval = setInterval(function() {
-      setTimeout(function() {
-        $("#message-display").text("1. Click box next to instrument to play on chosen beat.");
-      }, 0);
-      setTimeout(function() {
-        $("#message-display").text("2. Enter Desired Beats per Minute (BPM).");
-      }, 5000);
-      setTimeout(function() {
-        $("#message-display").text("3. Click Start to Play Loop!");
-      }, 10000);}, 15000);
-  }
 
   var highHat = new Sound("audio/HHOPEN2.wav");
   var bassDrum = new Sound("audio/BDRUM13.wav");
@@ -139,15 +137,15 @@ $(document).ready(function() {
     }
     if(bpm<60 || bpm>6000 || !bpm){
 
-      showInstructions = false;
-      $("#message-display").text("BPM has to be in range of 60-6000");
+      $("#instruction-display").hide();
+      $("#warning-display").text("BPM has to be in range of 60-6000");
       $("#stop-loop-btn").hide();
       $("#loop-btn").show();
     }
 
-    else{
-      showInstructions = false;
-      $("#message-display").text("Loop Playing");
+    else {
+      $("#instruction-display").hide();
+      $("#warning-display").text("Loop Playing");
       var tempo = 60000/ bpm;
       var loopTempo = tempo * 8;
       playLoop(currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCrash, tempo);
@@ -155,10 +153,12 @@ $(document).ready(function() {
     }
 
     $("#stop-loop-btn").click(function(event){
-      showInstructions = false;
-      $("#message-display").text("Loop will stop at end.");
+      $("#warning-display").text("Loop will stop at end.");
       setTimeout(function() {
-        showInstructions = true;
+        $("#warning-display").text("");
+      }, (60000/ bpm)*8);
+      setTimeout(function() {
+        $("#instruction-display").show();
       }, (60000/ bpm)*8);
       clearInterval(playInterval);
       $("#loop-btn").show();
@@ -169,7 +169,6 @@ $(document).ready(function() {
       $("#stop-loop-btn").click();
     });
   });
-
 
   $("#clear-checked").click(function(event){
     setTimeout(function() {
@@ -198,7 +197,6 @@ Sound.prototype.stop = function() {
   this.sound.currentTime = 0;
 }
 
-
 function SoundLoop() {
   this.sounds = [];
   for(var i=0; i<8; i++){
@@ -216,10 +214,10 @@ function playLoop(currentLoop, highHat, bassDrum, snareDrum, bongoDrum, cymbalCr
   }
 }
 
-function colorBack(j, color) {
-  $(".checbox" + j +":input[type=checkbox]:checked ~ span").css("background-color", color);
-}
-
 function playSound(sound) {
   sound.play();
+}
+
+function colorBack(j, color) {
+  $(".checbox" + j +":input[type=checkbox]:checked ~ span").css("background-color", color);
 }
